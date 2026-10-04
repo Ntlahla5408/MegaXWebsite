@@ -1,0 +1,986 @@
+/* =========================================
+   MEGA X INDUSTRIES
+   Main Stylesheet
+========================================= */
+
+
+/* =========================================
+   1. Global Variables
+========================================= */
+
+:root {
+    --navy: #071B2C;
+    --deep-blue: #0B2D47;
+    --blue: #103A5C;
+
+    --cyan: #20C7E8;
+    --light-cyan: #8BE8F5;
+
+    --white: #FFFFFF;
+    --light-gray: #F4F7F9;
+    --gray: #66727D;
+
+    --dark-text: #17212B;
+
+    --border-light: rgba(255, 255, 255, 0.12);
+
+    --container-width: 1200px;
+
+    --transition: 0.3s ease;
+}
+
+
+/* =========================================
+   2. Reset
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family:
+        "Segoe UI",
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background-color: var(--white);
+    color: var(--dark-text);
+
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* =========================================
+   3. Reusable Container
+========================================= */
+
+.container {
+    width: min(
+        90%,
+        var(--container-width)
+    );
+
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   4. Navigation
+========================================= */
+
+.navbar {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    z-index: 100;
+}
+
+.navbar-content {
+    height: 90px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* Logo */
+
+.logo {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.logo-mega {
+    color: var(--white);
+    font-size: 1.25rem;
+}
+
+.logo-x {
+    color: var(--cyan);
+    font-size: 1.6rem;
+}
+
+.logo-industries {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+}
+
+
+/* Navigation links */
+
+.navigation {
+    display: flex;
+    align-items: center;
+
+    gap: 35px;
+}
+
+.navigation a {
+    position: relative;
+
+    color: rgba(255, 255, 255, 0.8);
+
+    font-size: 0.9rem;
+    font-weight: 500;
+
+    transition: var(--transition);
+}
+
+.navigation a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -8px;
+
+    width: 0;
+    height: 2px;
+
+    background-color: var(--cyan);
+
+    transition: var(--transition);
+}
+
+.navigation a:hover {
+    color: var(--white);
+}
+
+.navigation a:hover::after {
+    width: 100%;
+}
+
+
+/* =========================================
+   5. Hero Section
+========================================= */
+
+.hero {
+    position: relative;
+
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--navy) 0%,
+            var(--deep-blue) 55%,
+            var(--blue) 100%
+        );
+
+    color: var(--white);
+}
+
+
+/* Subtle background glow */
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 600px;
+    height: 600px;
+
+    top: -250px;
+    right: -150px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(32, 199, 232, 0.12),
+            transparent 70%
+        );
+
+    pointer-events: none;
+}
+
+
+/* Technology pattern */
+
+.hero-pattern {
+    position: absolute;
+
+    inset: 0;
+
+    opacity: 0.12;
+
+    background-image:
+        linear-gradient(
+            rgba(32, 199, 232, 0.3) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(32, 199, 232, 0.3) 1px,
+            transparent 1px
+        );
+
+    background-size: 70px 70px;
+
+    mask-image:
+        linear-gradient(
+            to right,
+            transparent,
+            black 55%,
+            transparent
+        );
+}
+
+
+/* Hero content */
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    display: grid;
+
+    grid-template-columns:
+        1.1fr
+        0.9fr;
+
+    gap: 80px;
+
+    align-items: center;
+
+    padding-top: 80px;
+}
+
+
+/* Hero text */
+
+.eyebrow {
+    color: var(--cyan);
+
+    font-size: 0.75rem;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    max-width: 700px;
+
+    font-size: clamp(
+        3.2rem,
+        7vw,
+        6.2rem
+    );
+
+    line-height: 0.98;
+
+    letter-spacing: -3px;
+
+    margin-bottom: 30px;
+}
+
+.hero h1 span {
+    display: block;
+
+    color: var(--cyan);
+}
+
+.hero-description {
+    max-width: 560px;
+
+    color: rgba(255, 255, 255, 0.75);
+
+    font-size: 1.05rem;
+
+    line-height: 1.8;
+
+    margin-bottom: 40px;
+}
+
+
+/* =========================================
+   6. Primary Button
+========================================= */
+
+.primary-button {
+    display: inline-flex;
+
+    align-items: center;
+    gap: 20px;
+
+    padding: 15px 22px;
+
+    background-color: var(--cyan);
+
+    color: var(--navy);
+
+    font-size: 0.85rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+
+    transition: var(--transition);
+}
+
+.primary-button span {
+    font-size: 1.2rem;
+
+    transition: var(--transition);
+}
+
+.primary-button:hover {
+    background-color: var(--light-cyan);
+
+    transform: translateY(-3px);
+}
+
+.primary-button:hover span {
+    transform: translateX(5px);
+}
+
+
+/* =========================================
+   7. Hero Network Graphic
+========================================= */
+
+.hero-visual {
+    min-height: 500px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.network {
+    position: relative;
+
+    width: 400px;
+    height: 400px;
+}
+
+
+/* Network nodes */
+
+.network-node {
+    position: absolute;
+
+    width: 70px;
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid
+        rgba(32, 199, 232, 0.5);
+
+    border-radius: 50%;
+
+    color: var(--cyan);
+
+    font-size: 0.8rem;
+
+    font-weight: 700;
+
+    background:
+        rgba(7, 27, 44, 0.75);
+
+    backdrop-filter: blur(8px);
+
+    box-shadow:
+        0 0 30px
+        rgba(32, 199, 232, 0.08);
+}
+
+
+/* Center node */
+
+.node-center {
+    top: 165px;
+    left: 165px;
+
+    width: 90px;
+    height: 90px;
+
+    border:
+        2px solid var(--cyan);
+
+    color: var(--white);
+
+    font-size: 1.1rem;
+
+    box-shadow:
+        0 0 40px
+        rgba(32, 199, 232, 0.2);
+}
+
+
+/* Outer nodes */
+
+.node-one {
+    top: 30px;
+    left: 165px;
+}
+
+.node-two {
+    bottom: 35px;
+    left: 40px;
+}
+
+.node-three {
+    bottom: 35px;
+    right: 40px;
+}
+
+
+/* Connecting lines */
+
+.network-line {
+    position: absolute;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--cyan),
+            transparent
+        );
+
+    opacity: 0.5;
+
+    transform-origin: center;
+}
+
+.line-one {
+    width: 135px;
+
+    top: 150px;
+    left: 132px;
+
+    transform:
+        rotate(90deg);
+}
+
+.line-two {
+    width: 150px;
+
+    top: 235px;
+    left: 90px;
+
+    transform:
+        rotate(30deg);
+}
+
+.line-three {
+    width: 150px;
+
+    top: 235px;
+    right: 90px;
+
+    transform:
+        rotate(-30deg);
+}
+
+
+/* =========================================
+   8. General Sections
+========================================= */
+
+.section {
+    padding: 120px 0;
+}
+
+.section-heading {
+    max-width: 750px;
+
+    margin-bottom: 65px;
+}
+
+.section-heading h2 {
+    font-size: clamp(
+        2.4rem,
+        5vw,
+        4rem
+    );
+
+    line-height: 1.05;
+
+    letter-spacing: -2px;
+}
+
+.section-heading h2 span {
+    color: var(--cyan);
+}
+
+
+/* =========================================
+   9. About
+========================================= */
+
+.about {
+    background-color: var(--white);
+}
+
+.about-content {
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    gap: 70px;
+
+    max-width: 950px;
+
+    margin-left: auto;
+}
+
+.about-content p {
+    color: var(--gray);
+
+    font-size: 1.05rem;
+
+    line-height: 1.9;
+}
+
+
+/* =========================================
+   10. Services
+========================================= */
+
+.services {
+    background-color: var(--light-gray);
+}
+
+.service-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.service-card {
+    position: relative;
+
+    padding: 40px;
+
+    min-height: 300px;
+
+    background-color: var(--white);
+
+    border:
+        1px solid
+        #e5eaee;
+
+    transition: var(--transition);
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+
+    border-color: var(--cyan);
+
+    box-shadow:
+        0 20px 50px
+        rgba(7, 27, 44, 0.08);
+}
+
+.service-number {
+    color: var(--cyan);
+
+    font-size: 0.8rem;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 50px;
+}
+
+.service-card h3 {
+    font-size: 1.4rem;
+
+    margin-bottom: 15px;
+}
+
+.service-card p {
+    color: var(--gray);
+
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   11. Solutions
+========================================= */
+
+.solutions {
+    background-color: var(--navy);
+
+    color: var(--white);
+}
+
+.solution-card {
+    position: relative;
+
+    min-height: 350px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 50px;
+
+    padding: 60px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--deep-blue),
+            var(--blue)
+        );
+
+    border:
+        1px solid
+        rgba(32, 199, 232, 0.2);
+}
+
+.solution-content {
+    max-width: 650px;
+}
+
+.solution-label {
+    color: var(--cyan);
+
+    font-size: 0.7rem;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 15px;
+}
+
+.solution-card h3 {
+    font-size: 3rem;
+
+    margin-bottom: 20px;
+}
+
+.solution-card p {
+    color: rgba(255, 255, 255, 0.7);
+
+    max-width: 600px;
+
+    line-height: 1.8;
+}
+
+.coming-label {
+    display: inline-block;
+
+    margin-top: 30px;
+
+    padding: 8px 12px;
+
+    border:
+        1px solid
+        rgba(32, 199, 232, 0.35);
+
+    color: var(--cyan);
+
+    font-size: 0.65rem;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+/* Solution mark */
+
+.solution-mark {
+    width: 180px;
+    height: 180px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(32, 199, 232, 0.4);
+
+    border-radius: 50%;
+
+    color: var(--cyan);
+
+    font-size: 2rem;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 0 70px
+        rgba(32, 199, 232, 0.08);
+}
+
+
+/* =========================================
+   12. Contact
+========================================= */
+
+.contact {
+    background-color: var(--white);
+}
+
+.contact-content {
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        0.7fr;
+
+    gap: 100px;
+
+    align-items: center;
+}
+
+.contact-details p {
+    color: var(--gray);
+
+    margin-bottom: 20px;
+
+    line-height: 1.8;
+}
+
+.contact-details a {
+    color: var(--deep-blue);
+
+    font-size: 1.1rem;
+
+    font-weight: 700;
+
+    border-bottom:
+        2px solid
+        var(--cyan);
+
+    padding-bottom: 4px;
+
+    transition: var(--transition);
+}
+
+.contact-details a:hover {
+    color: var(--cyan);
+}
+
+
+/* =========================================
+   13. Footer
+========================================= */
+
+.footer {
+    padding: 40px 0;
+
+    background-color: #04121F;
+
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-content {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+.footer-logo {
+    color: var(--white);
+
+    font-size: 0.9rem;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+.footer-logo span {
+    color: var(--cyan);
+}
+
+.footer-content p {
+    font-size: 0.8rem;
+}
+
+.copyright {
+    opacity: 0.5;
+}
+
+
+/* =========================================
+   14. Responsive Design
+========================================= */
+
+@media (max-width: 900px) {
+
+    .hero-content {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+
+        padding-top: 130px;
+    }
+
+    .hero-visual {
+        min-height: 350px;
+    }
+
+    .network {
+        transform: scale(0.8);
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+
+        margin-left: 0;
+    }
+
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+    }
+
+    .solution-card {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .solution-mark {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .navbar-content {
+        height: 75px;
+    }
+
+    .navigation {
+        gap: 15px;
+    }
+
+    .navigation a {
+        font-size: 0.75rem;
+    }
+
+    .logo-industries {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 3.2rem;
+
+        letter-spacing: -2px;
+    }
+
+    .hero-description {
+        font-size: 0.95rem;
+    }
+
+    .section {
+        padding: 80px 0;
+    }
+
+    .section-heading {
+        margin-bottom: 45px;
+    }
+
+    .section-heading h2 {
+        font-size: 2.5rem;
+    }
+
+    .service-card {
+        min-height: auto;
+
+        padding: 30px;
+    }
+
+    .solution-card {
+        padding: 35px 25px;
+    }
+
+    .solution-card h3 {
+        font-size: 2.4rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .hero-visual {
+        min-height: 300px;
+    }
+
+    .network {
+        transform: scale(0.65);
+    }
+}
